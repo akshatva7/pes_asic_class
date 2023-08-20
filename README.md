@@ -37,28 +37,28 @@ To get started with the VLSI Physical Design for ASICs workshop, follow these st
 
 This will initiate the installation process and set up the necessary environment for the workshop.
 
-## Table of Contents
+# Table of Contents
 
-- **DAY 1**:
+## DAY 1
   
-# Introduction to RISC-V ISA and GNU Compiler Toolchain
+## Introduction to RISC-V ISA and GNU Compiler Toolchain
 
-## Introduction to Basic Keywords
+### Introduction to Basic Keywords
 - Introduction
 - From Apps to Hardware
 - Detail Description of Course Content
 
-## Labwork for RISC-V Toolchain
+### Labwork for RISC-V Toolchain
 - C Program
 - RISC-V GCC Compiler and Disassemble
 - Spike Simulation and Debug
 
-## Integer Number Representation
+### Integer Number Representation
 - 64-bit Unsigned Numbers
 - 64-bit Signed Numbers
 - Labwork For Signed and Unsigned Numbers
 
-# DAY 2
+## DAY 2
 
 ## Introduction to ABI and Basic Verification Flow
 
@@ -84,7 +84,6 @@ ISA defines the interface between a computer's hardware and its software, specif
 
 RISC-V is an open-source Instruction Set Architecture (ISA) that has gained significant attention and adoption in the world of computer architecture and semiconductor design. RISC architectures simplify the instruction set by focusing on a smaller set of instructions, each of which can be executed in a single clock cycle. This approach usually leads to faster execution of individual instructions.
 
-![RISC-V](your_image_url_here)
 
 ## From Apps to Hardware
 
