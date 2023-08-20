@@ -210,13 +210,13 @@ q : to quit the debug process
 # Integer Number Representation
 ## Unsigned Numbers
 
-	1.Unsigned numbers, also known as non-negative numbers, are numerical values that represent magnitudes without indicating direction or sign.
-	2.Range: [0, (2^n)-1 ]
+1.Unsigned numbers, also known as non-negative numbers, are numerical values that represent magnitudes without indicating direction or sign.
+2.Range: [0, (2^n)-1 ]
 
 ## Signed Numbers
 
-	1.Signed numbers are numerical values that can represent both positive and negative magnitudes, along with zero.
-	2.Range : Positive : [0 , 2^(n-1)-1] Negative : [-1 to 2^(n-1)]
+1.Signed numbers are numerical values that can represent both positive and negative magnitudes, along with zero.
+2.Range : Positive : [0 , 2^(n-1)-1] Negative : [-1 to 2^(n-1)]
 
 # Labwork
 
@@ -327,12 +327,13 @@ When you call an assembly function from your C code, the C calling convention is
 
 The program executes the assembly function, following the assembly instructions you've provided.
 
-##Review ASM Function Calls
+## Review ASM Function Calls
 
 We wrote C code in one file and your assembly code in a separate file.
 In the assembly file, we declared assembly functions with appropriate signatures that match the calling conventions of your platform.
 
-###C Program ```p3.c```
+### C Program - Sum of numbers from 1 to 9
+```p3.c```
 ```c
 #include <stdio.h>
 
@@ -346,7 +347,8 @@ int main()
   printf("Sum of numbers from 1 to 9 is %d\n", result);
 }
 ```
-### Assembly File ```load.s```
+### Assembly File 
+```load.s```
 
 ```s
 .section .text
