@@ -2,7 +2,7 @@
 
 ## Objective
 
-The objective of VLSI (Very Large Scale Integration) physical design for ASICs (Application-Specific Integrated Circuits) is to transform a logical design description (RTL - Register Transfer Level) into a physical layout that can be fabricated as an integrated circuit. This involves translating the high-level functional representation of the circuit into a physical implementation that meets design constraints, performance targets, and manufacturability requirements.
+The objective of VLSI physical design for ASICs is to convert a logical RTL design into a physical layout suitable for fabrication. This process ensures the circuit's functionality aligns with design constraints, performance goals, and manufacturing standards.
 
 ## Skill Outcomes
 
@@ -39,11 +39,37 @@ This will initiate the installation process and set up the necessary environment
 
 ## Table of Contents
 
-- **DAY 1**: Introduction to VLSI Physical Design
-  - Overview of ASICs
-  - Role of Physical Design in VLSI
-  - Tools and Environment Setup
-  - Basic Concepts in RTL Design
+- **DAY 1**:
+  
+# Introduction to RISC-V ISA and GNU Compiler Toolchain
 
-<!-- Add more content for subsequent days as needed -->
+## Introduction to Basic Keywords
+- Introduction
+- From Apps to Hardware
+- Detail Description of Course Content
+
+## Labwork for RISC-V Toolchain
+- C Program
+- RISC-V GCC Compiler and Disassemble
+- Spike Simulation and Debug
+
+## Integer Number Representation
+- 64-bit Unsigned Numbers
+- 64-bit Signed Numbers
+- Labwork For Signed and Unsigned Numbers
+
+# DAY 2
+
+## Introduction to ABI and Basic Verification Flow
+
+### Application Binary Interface
+- Introduction to ABI
+- Memory Allocation for Double Words
+- Load, Add and Store Instructions
+- 32-Registers and their ABI Names
+
+### Labwork using ABI Function Calls
+- Algorithm for C Program using ASM
+- Review ASM Function Calls
+- Simulate C Program using Function Call
 
