@@ -134,23 +134,15 @@ Memory allocation refers to the process of assigning and managing memory segment
 We wrote a C program ```p1.c```for calculating the Sum from 1 to n using a text editor, `gedit`.
 
 ```c
+#include<stdio.h>
 
-#include <stdio.h>
-
-int main() {
-    int i, sum = 0;
-    int n;
-
-   printf("Enter the number n: ");
-   scanf("%d", &n);
-
-    for (i = 1; i <= n; i++) {
-        sum += i;
-    }
-
-   printf("Sum of numbers from 1 to %d is %d\n", n, sum);
-
-    return 0;
+int main(){
+	int i, sum=0, n=111;
+	for (i=1;i<=n; ++i) {
+	sum +=i;
+	}
+	printf("Sum of numbers from 1 to %d is %d \n",n,sum);
+	return 0;
 }
 ```
 Using the gcc compiler, we compiled the program to get the output.
@@ -158,8 +150,8 @@ Using the gcc compiler, we compiled the program to get the output.
 gcc p1.c
 ./a.out
 ```
-![1](https://github.com/akshatva7/pes_asic_class/assets/135726741/56602c48-551c-4419-92d4-b88ffd81a13f)
 
+![1](https://github.com/akshatva7/pes_asic_class/assets/135726741/753b4fde-d1c4-4b9c-b256-6dc3f0ef9fa7)
 
 # RISCV GCC Compiler and Disassemble
 
@@ -168,12 +160,15 @@ Using the RISC-V GCC compiler, we compiled the C program.
 riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o p1.o p1.c
 ```
 Using ```ls -ltr p1.c``` we can check that the object file is created.
+![2](https://github.com/akshatva7/pes_asic_class/assets/135726741/e42a34de-c687-4a3e-855d-43e84ecd6e57)
 
 To get the dissembled ALP code for the C program,
 
 ```riscv64-unknown-elf-objdump -d p1.o | less ```
 
 In order to view the main section, type ```/main```
+![4](https://github.com/akshatva7/pes_asic_class/assets/135726741/44b0cbfb-5d8c-4af7-ba8e-ea229a312bef)
+
 
 Here, since we used -O1 optimisation, the number of instructions are 15.
 
