@@ -131,7 +131,7 @@ Memory allocation refers to the process of assigning and managing memory segment
 
 ## C Program
 
-We wrote a C program for calculating the sum from 1 to n using a text editor, `gedit`.
+We wrote a C program for calculating the Sum from 1 to n using a text editor, `gedit`.
 
 ```c
 
@@ -155,20 +155,20 @@ int main() {
 ```
 Using the gcc compiler, we compiled the program to get the output.
 ```
-gcc sumton.c -o a.out
+gcc p1.c -o a.out
 ```
 
 #RISCV GCC Compiler and Disassemble
 
 Using the RISC-V GCC compiler, we compiled the C program.
 ```
-riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o sum1ton.o sum1ton.c
+riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o p1.o p1.c
 ```
-Using ```ls -ltr p1.c```     we can check that the object file is created.
+Using ```ls -ltr p1.c``` we can check that the object file is created.
 
 To get the dissembled ALP code for the C program,
 
-```riscv64-unknown-elf-objdump -d sum1ton.o | less ```
+```riscv64-unknown-elf-objdump -d p1.o | less ```
 
 In order to view the main section, type ```/main```
 
