@@ -210,17 +210,17 @@ q : to quit the debug process
 # Integer Number Representation
 ## Unsigned Numbers
 
-1.Unsigned numbers, also known as non-negative numbers, are numerical values that represent magnitudes without indicating direction or sign.
-2.Range: [0, (2^n)-1 ]
+	1.Unsigned numbers, also known as non-negative numbers, are numerical values that represent magnitudes without indicating direction or sign.
+	2.Range: [0, (2^n)-1 ]
 
 ## Signed Numbers
 
-1.Signed numbers are numerical values that can represent both positive and negative magnitudes, along with zero.
-2.Range : Positive : [0 , 2^(n-1)-1] Negative : [-1 to 2^(n-1)]
+	1.Signed numbers are numerical values that can represent both positive and negative magnitudes, along with zero.
+	2.Range : Positive : [0 , 2^(n-1)-1] Negative : [-1 to 2^(n-1)]
 
 # Labwork
 
-We wrote a C program ```p2.c```that shows the maximum and minimum values of 64bit signed numbers.
+We wrote a C program ```p2.c```that shows the maximum and minimum values of 64bit Signed numbers.
 
 ```c
 #include <stdio.h>
@@ -236,7 +236,7 @@ int main(){
 ```
 ![6](https://github.com/akshatva7/pes_asic_class/assets/135726741/6a85ec2f-b6a4-4ea8-af39-ca292370fde1)
 
-We wrote a C program ```p2.c```that shows the maximum and minimum values of 64bit Unsigned numbers.
+We wrote a C program ```p3.c```that shows the maximum and minimum values of 64bit Unsigned numbers.
 
 ```c
 #include <stdio.h>
