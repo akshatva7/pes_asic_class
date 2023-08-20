@@ -210,13 +210,13 @@ q : to quit the debug process
 # Integer Number Representation
 ## Unsigned Numbers
 
-1.Unsigned numbers, also known as non-negative numbers, are numerical values that represent magnitudes without indicating direction or sign.
-2.Range: [0, (2^n)-1 ]
+* Unsigned numbers, also known as non-negative numbers, are numerical values that represent magnitudes without indicating direction or sign.
+* Range: [0, (2^n)-1 ]
 
 ## Signed Numbers
 
-1.Signed numbers are numerical values that can represent both positive and negative magnitudes, along with zero.
-2.Range : Positive : [0 , 2^(n-1)-1] Negative : [-1 to 2^(n-1)]
+* Signed numbers are numerical values that can represent both positive and negative magnitudes, along with zero.
+* Range : Positive : [0 , 2^(n-1)-1] Negative : [-1 to 2^(n-1)]
 
 # Labwork
 
@@ -264,13 +264,12 @@ The ABI is crucial for enabling interoperability between different software comp
 
 64-bit number (or any multi-byte value) can be loaded into memory in little-endian or big-endian. It involves understanding the byte order and arranging the bytes accordingly
 
-Little-Endian: In little-endian representation, you store the least significant byte (LSB) at the lowest memory address and the most significant byte (MSB) at the highest memory address.
+* Little-Endian: In little-endian representation, you store the least significant byte (LSB) at the lowest memory address and the most significant byte (MSB) at the highest memory address.
 Big-Endian: In big-endian representation, you store the most significant byte (MSB) at the lowest memory address and the least significant byte (LSB) at the highest memory address.
 
-For example, consider the 64-bit hexadecimal value 0x0123456789ABCDEF.
+**For example, consider the 64-bit hexadecimal value 0x0123456789ABCDEF.**
 
 In Little-Endian representation, it would be stored as follows in memory:
-
 
 In Big-Endian representation, it would be stored as follows in memory:
 
@@ -285,9 +284,9 @@ Example ```ld x6, 8(x5)```
 
 In this Example
 
-```ld``` is the load double-word instruction.
-```x6``` is the destination register.
-```8(x5)``` is the memory address pointed to by register ```x5``` (base address + offset).
+* ```ld``` is the load double-word instruction.
+* ```x6``` is the destination register.
+* ```8(x5)``` is the memory address pointed to by register ```x5``` (base address + offset).
 
 Store Instructions: Store instructions are used to write data from registers into memory.They store values from registers into memory addresses
 
@@ -295,9 +294,9 @@ Example ```sd x8, 8(x9)```
 
 In this Example
 
-```sd``` is the store double-word instruction.
-```x8``` is the source register.
-```8(x9)``` is the memory address pointed to by register ```x9``` (base address + offset).
+* ```sd``` is the store double-word instruction.
+* ```x8``` is the source register.
+* ```8(x9)``` is the memory address pointed to by register ```x9``` (base address + offset).
 
 Add Instructions: Add instructions are used to perform addition operations on registers. They add the values of two source registers and store the result in a destination register.
 
@@ -305,11 +304,11 @@ Example ```add x9, x10, x11```
 
 In this Example
 
-    ```add``` is the add instruction.
-    ```x9``` is the destination register.
-    ```x10``` and ```x11``` are the source registers.
+```add``` is the add instruction.
+```x9``` is the destination register.
+```x10``` and ```x11``` are the source registers.
 
-#32-Registers and their ABI Names
+# 32-Registers and their ABI Names
 
 The choice of the number of registers in a processor's architecture, such as the RISC-V RV64 architecture with its 32 general-purpose registers, involves a trade-off between various factors. While modern processors can have more registers but increasing the number of registers could lead to larger instructions, which would take up more memory and potentially slow down instruction fetch and decode.
 
