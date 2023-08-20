@@ -85,7 +85,7 @@ ISA defines the interface between a computer's hardware and its software, specif
 RISC-V is an open-source Instruction Set Architecture (ISA) that has gained significant attention and adoption in the world of computer architecture and semiconductor design. RISC architectures simplify the instruction set by focusing on a smaller set of instructions, each of which can be executed in a single clock cycle. This approach usually leads to faster execution of individual instructions.
 
 
-## From Apps to Hardware
+# From Apps to Hardware
 
 - **Apps**: Application software, often referred to simply as "applications" or "apps," is a type of computer software that is designed to perform specific tasks or functions for end-users.
 
@@ -101,7 +101,7 @@ RISC-V is an open-source Instruction Set Architecture (ISA) that has gained sign
 
 - **Hardware**: Hardware refers to the physical components of a computer system or any electronic device. It encompasses all the tangible parts that make up a computing or electronic device and enable it to perform various tasks.
 
-## Detail Description of Course Content
+# Detail Description of Course Content
 
 ### Pseudo Instructions
 
@@ -127,5 +127,76 @@ ABI stands for "Application Binary Interface." It is a set of rules and conventi
 
 Memory allocation refers to the process of assigning and managing memory segments for various data structures, variables, and objects used by a program. It involves allocating memory space from the system's memory pool and releasing it when it is no longer needed to prevent memory leaks. The stack pointer is a register used by a program to keep track of the current position of the program's execution on the call stack.
 
-## [DAY 2](#day-2)
+# Labwork for RISCV Toolchain
+
+## C Program
+
+We wrote a C program for calculating the sum from 1 to n using a text editor, `gedit`.
+
+```c
+// 
+#include <stdio.h>
+
+int main() {
+    int i, sum = 0;
+    int n;
+
+   printf("Enter the number n: ");
+   scanf("%d", &n);
+
+    for (i = 1; i <= n; i++) {
+        sum += i;
+    }
+
+   printf("Sum of numbers from 1 to %d is %d\n", n, sum);
+
+    return 0;
+}
+```
+Using the gcc compiler, we compiled the program to get the output.
+```
+gcc sumton.c -o a.out
+```
+
+#RISCV GCC Compiler and Disassemble
+
+Using the RISC-V GCC compiler, we compiled the C program.
+```
+riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o sum1ton.o sum1ton.c
+```
+Using ```ls -ltr p1.c```     we can check that the object file is created.
+
+To get the dissembled ALP code for the C program,
+
+```riscv64-unknown-elf-objdump -d sum1ton.o | less ```
+
+In order to view the main section, type ```/main```
+
+Here, since we used -O1 optimisation, the number of instructions are 15.
+
+When we use -Ofast optimisation, we can see that the number of instructions have been reduced to 12.
+
+    -Onumber: level of optimization required
+    -mabi: specifies the ABI (Application Binary Interface) to be used during code generation according to the requirements
+    -march: specifies the target architecture
+
+In order to view the different options available for these fields, use the following commands:
+
+Go to the directory where riscv64-unknown-elf is present.
+
+    -O1: riscv64-unknown-elf --help=optimizer
+    -mabi: riscv64-unknown-elf-gcc --target-help
+    -march: riscv64-unknown-elf-gcc --target-help
+
+For different instances,
+
+    Use the command riscv64-unknown-elf-objdump -d 1_to_N.o | less
+    Use /instance to search for an instance
+    Press ENTER
+    Press n to search for the next occurrence
+    Press N to search for the previous occurrence.
+    Use esc :q to quit
+
+
+
 
