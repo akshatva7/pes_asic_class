@@ -131,7 +131,7 @@ Memory allocation refers to the process of assigning and managing memory segment
 
 ## C Program
 
-We wrote a C program for calculating the Sum from 1 to n using a text editor, `gedit`.
+We wrote a C program ```p1.c```for calculating the Sum from 1 to n using a text editor, `gedit`.
 
 ```c
 
@@ -157,8 +157,10 @@ Using the gcc compiler, we compiled the program to get the output.
 ```
 gcc p1.c -o a.out
 ```
+![1](https://github.com/akshatva7/pes_asic_class/assets/135726741/56602c48-551c-4419-92d4-b88ffd81a13f)
 
-#RISCV GCC Compiler and Disassemble
+
+# RISCV GCC Compiler and Disassemble
 
 Using the RISC-V GCC compiler, we compiled the C program.
 ```
