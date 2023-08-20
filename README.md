@@ -195,7 +195,7 @@ Press ```n``` to search for the next occurrence
 Press ```N``` to search for the previous occurrence.
 Use esc ```:q``` to quit
 
-#Spike Simulation and Debug
+# Spike Simulation and Debug
 
 ```spike pk p1.o ```is used to check whether the instructions produced are right to give the correct output.
 
@@ -207,20 +207,20 @@ Press ENTER : to show the first line and successive ENTER to show successive lin
 reg 0 a2 : to check content of register a2 0th core
 q : to quit the debug process
 
-#Integer Number Representation
-##Unsigned Numbers
+# Integer Number Representation
+## Unsigned Numbers
 
 1.Unsigned numbers, also known as non-negative numbers, are numerical values that represent magnitudes without indicating direction or sign.
 2.Range: [0, (2^n)-1 ]
 
-##Signed Numbers
+## Signed Numbers
 
 1.Signed numbers are numerical values that can represent both positive and negative magnitudes, along with zero.
 2.Range : Positive : [0 , 2^(n-1)-1] Negative : [-1 to 2^(n-1)]
 
-#Labwork
+# Labwork
 
-We wrote a C program that shows the maximum and minimum values of 64bit unsigned numbers.
+We wrote a C program ```p2.c```that shows the maximum and minimum values of 64bit signed numbers.
 
 ```c
 #include <stdio.h>
@@ -234,8 +234,28 @@ int main(){
 	return 0;
 }
 ```
-#Application Binary Interface
-##Introduction to ABI
+![6](https://github.com/akshatva7/pes_asic_class/assets/135726741/6a85ec2f-b6a4-4ea8-af39-ca292370fde1)
+
+We wrote a C program ```p2.c```that shows the maximum and minimum values of 64bit Unsigned numbers.
+
+```c
+#include <stdio.h>
+#include <math.h>
+
+int main(){
+	unsigned long long int max = (unsigned long long int) (pow(2,64) -1);
+	unsigned long long int min = (unsigned long long int) (pow(2,64) *(-1));
+	printf("lowest number represented by unsigned 64-bit integer is %llu\n",min);
+	printf("highest number represented by unsigned 64-bit integer is %llu\n",max);
+	return 0;
+}
+```
+![7](https://github.com/akshatva7/pes_asic_class/assets/135726741/6f1ea5b2-49dd-4afc-b1d9-80516056f9a8)
+
+
+
+# Application Binary Interface
+## Introduction to ABI
 
     An Application Binary Interface (ABI) is a set of rules and conventions that dictate how binary code interacts with and communicates with other binary code, typically at the level of machine code or compiled code. In simpler terms, it defines the interface between two software components or systems that are written in different programming languages, compiled by different compilers, or running on different hardware architectures.
     The ABI is crucial for enabling interoperability between different software components, such as different libraries, object files, or even entire programs. It allows components compiled independently and potentially on different platforms to work seamlessly together by adhering to a common set of rules for communication and data representation.
