@@ -155,7 +155,8 @@ int main() {
 ```
 Using the gcc compiler, we compiled the program to get the output.
 ```
-gcc p1.c -o a.out
+gcc p1.c
+./a.out
 ```
 ![1](https://github.com/akshatva7/pes_asic_class/assets/135726741/56602c48-551c-4419-92d4-b88ffd81a13f)
 
