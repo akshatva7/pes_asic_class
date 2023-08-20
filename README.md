@@ -177,17 +177,17 @@ Here, since we used -O1 optimisation, the number of instructions are 26.
 
 When we use -Ofast optimisation, we can see that the number of instructions have been reduced to 12.
 
-* Onumber: level of optimization required
-* mabi: specifies the ABI (Application Binary Interface) to be used during code generation according to the requirements
-* march: specifies the target architecture
+Onumber: level of optimization required
+mabi: specifies the ABI (Application Binary Interface) to be used during code generation according to the requirements
+march: specifies the target architecture
 
 In order to view the different options available for these fields, use the following commands:
 
 Go to the directory where riscv64-unknown-elf is present.
 
-O1:``` riscv64-unknown-elf --help=optimizer```
-mabi: ```riscv64-unknown-elf-gcc --target-help```
-march: ```riscv64-unknown-elf-gcc --target-help```
+* O1:``` riscv64-unknown-elf --help=optimizer```
+* mabi: ```riscv64-unknown-elf-gcc --target-help```
+* march: ```riscv64-unknown-elf-gcc --target-help```
 
 For different instances,
 
