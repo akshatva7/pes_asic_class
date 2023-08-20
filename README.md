@@ -304,9 +304,9 @@ Example ```add x9, x10, x11```
 
 In this Example
 
-```add``` is the add instruction.
-```x9``` is the destination register.
-```x10``` and ```x11``` are the source registers.
+* ```add``` is the add instruction.
+* ```x9``` is the destination register.
+* ```x10``` and ```x11``` are the source registers.
 
 # 32-Registers and their ABI Names
 
@@ -315,6 +315,9 @@ The choice of the number of registers in a processor's architecture, such as the
 ## ABI Names
 
 ABI names for registers serve as a standardized way to designate the purpose and usage of specific registers within a software ecosystem. These names play a critical role in maintaining compatibility, optimizing code generation, and facilitating communication between different software components.
+
+![9](https://github.com/akshatva7/pes_asic_class/assets/135726741/0cf843d9-8f69-41a5-ac00-fd92d6f0928d)
+
 
 # Labwork using ABI Function Calls
 
@@ -332,7 +335,7 @@ We wrote C code in one file and your assembly code in a separate file.
 In the assembly file, we declared assembly functions with appropriate signatures that match the calling conventions of your platform.
 
 ### C Program - Sum of numbers from 1 to 9
-```p3.c```
+```p4.c```
 ```c
 #include <stdio.h>
 
@@ -379,6 +382,16 @@ this would generate object file ```p3.o```
 **Execution:** To execute the object file run the command
 
 ```spike pk p3.o```
+
+![8](https://github.com/akshatva7/pes_asic_class/assets/135726741/55f2d630-e640-4633-81ae-4d4a14218977)
+
+![Screenshot from 2023-08-20 22-01-13](https://github.com/akshatva7/pes_asic_class/assets/135726741/d20630e3-9bf5-4f96-a916-31655534aa09)
+
+
+![Screenshot from 2023-08-20 22-01-35](https://github.com/akshatva7/pes_asic_class/assets/135726741/8861a8bc-256d-47da-93b4-7492a3a5a1ed)
+
+
+
 
 
 
