@@ -170,7 +170,10 @@ In order to view the main section, type ```/main```
 ![4](https://github.com/akshatva7/pes_asic_class/assets/135726741/44b0cbfb-5d8c-4af7-ba8e-ea229a312bef)
 
 
-Here, since we used -O1 optimisation, the number of instructions are 15.
+Here, since we used -O1 optimisation, the number of instructions are 26.
+
+![Screenshot from 2023-08-20 22-34-30](https://github.com/akshatva7/pes_asic_class/assets/135726741/684258c6-c347-465c-8804-eef593c15d45)
+
 
 When we use -Ofast optimisation, we can see that the number of instructions have been reduced to 12.
 
@@ -266,13 +269,6 @@ The ABI is crucial for enabling interoperability between different software comp
 
 * Little-Endian: In little-endian representation, you store the least significant byte (LSB) at the lowest memory address and the most significant byte (MSB) at the highest memory address.
 Big-Endian: In big-endian representation, you store the most significant byte (MSB) at the lowest memory address and the least significant byte (LSB) at the highest memory address.
-
-**For example, consider the 64-bit hexadecimal value 0x0123456789ABCDEF.**
-
-In Little-Endian representation, it would be stored as follows in memory:
-
-In Big-Endian representation, it would be stored as follows in memory:
-
 
 # Load, Add and Store Instructions
 
