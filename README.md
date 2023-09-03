@@ -15,6 +15,11 @@ Participants in this course will gain expertise in the following areas:
 - **Clock Tree Synthesis**: Building a clock distribution network to ensure synchronous operation.
 - **Routing**: Establishing interconnections between different parts of the design.
 
+<details>
+<summary> ## Installation </summary>
+<br>
+
+
 ## Installation
 
 To get started with the VLSI Physical Design for ASICs workshop, follow these steps:
@@ -36,6 +41,8 @@ To get started with the VLSI Physical Design for ASICs workshop, follow these st
     ```
 
 This will initiate the installation process and set up the necessary environment for the workshop.
+</details>
+
 
 # Table of Contents
 
