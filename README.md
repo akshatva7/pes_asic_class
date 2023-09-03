@@ -16,7 +16,7 @@ Participants in this course will gain expertise in the following areas:
 - **Routing**: Establishing interconnections between different parts of the design.
 
 <details>
-<summary> ## Installation </summary>
+<summary> Installation </summary>
 <br>
 
 
