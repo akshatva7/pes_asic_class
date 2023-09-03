@@ -15,9 +15,6 @@ Participants in this course will gain expertise in the following areas:
 - **Clock Tree Synthesis**: Building a clock distribution network to ensure synchronous operation.
 - **Routing**: Establishing interconnections between different parts of the design.
 
-<details>
-<summary> Installation </summary>
-<br>
 
 
 ## Installation
@@ -41,7 +38,7 @@ To get started with the VLSI Physical Design for ASICs workshop, follow these st
     ```
 
 This will initiate the installation process and set up the necessary environment for the workshop.
-</details>
+
 
 
 # Table of Contents
@@ -80,8 +77,67 @@ This will initiate the installation process and set up the necessary environment
 - Review ASM Function Calls
 - Simulate C Program using Function Call
 
+## DAY 3
+### Introduction to Verilog RTL design and Synthesis
+- Introduction to Open-Source Simulator iVerilog
+	- Introduction to iVerilog Design Testbench
+  
+- Labs using iVerilog and GTKwave
+	- Introduction to Lab
+	- iVerilog GTKwave Part-1
+	- iVerilog GTKwave Part-2
 
-# Introduction
+- Introduction to Yosys and Logic synthesis
+	- Introduction to Yosys
+	- Introduction to Logic Synthesis
+
+- Labs using Yosys and Sky130 PDKs
+	- Yosys good mux
+
+## DAY 4
+
+### Timing Libs, Hierarchical vs Flat Synthesis and Efficient Flop Coding Styles
+
+- Introduction to Timing Dot Libs
+  	- Introduction to Dot Lib
+
+- Hierarchical vs Flat Synthesis
+	- Hierarchical Synthesis Flat Synthesis
+
+- Various Flop Coding Styles and Optimization
+	- Why Flops and Flop Coding Styles
+	- Lab Flop Synthesis Simulations
+	- Interesting Optimisations
+
+## DAY 5
+
+### Combinational and Sequential Optmizations
+
+- Introduction to Optimisations
+- Combinational Logic Optimisations
+- Sequential Logic Optimisations
+- Sequential Optimisations for Unused Outputs
+
+## DAY 6
+
+### GLS, Blocking vs Non-Blocking and Synthesis-Simulation Mismatch
+
+- GLS Synthesis-Simulation Mismatch and Blocking Non-Blocking Statements
+
+- GLS Concepts And Flow Using Iverilog
+	- Synthesis Simulation Mismatch
+	- Blocking And Non Blocking Statements In Verilog
+	- Caveats With Blocking Statements
+
+
+- Labs on GLS and Synthesis-Simulation Mismatch
+- Labs on Synth-Sim Mismatch for Blocking Statement
+
+# DAY 1
+# Introduction to Basic Keywords
+<details>
+<summary>Introduction</summary>
+<br>
 
 ## ISA (Instruction Set Architecture)
 
@@ -90,9 +146,11 @@ ISA defines the interface between a computer's hardware and its software, specif
 ## [RISC-V (Reduced Instruction Set Computing - Five)](https://www.riscv.org/)
 
 RISC-V is an open-source Instruction Set Architecture (ISA) that has gained significant attention and adoption in the world of computer architecture and semiconductor design. RISC architectures simplify the instruction set by focusing on a smaller set of instructions, each of which can be executed in a single clock cycle. This approach usually leads to faster execution of individual instructions.
+</details>
 
-
-# From Apps to Hardware
+<details>
+<summary>From Apps to Hardware</summary>
+<br>
 
 - **Apps**: Application software, often referred to simply as "applications" or "apps," is a type of computer software that is designed to perform specific tasks or functions for end-users.
 
@@ -107,8 +165,11 @@ RISC-V is an open-source Instruction Set Architecture (ISA) that has gained sign
 - **RTL**: RTL serves as an abstraction level in the design process that represents the behavior of a digital circuit in terms of registers and the operations that transfer data between them.
 
 - **Hardware**: Hardware refers to the physical components of a computer system or any electronic device. It encompasses all the tangible parts that make up a computing or electronic device and enable it to perform various tasks.
+</details>
 
-# Detail Description of Course Content
+<details>
+<summary>Detail Description of Course Content</summary>
+<br>
 
 ### Pseudo Instructions
 
@@ -133,10 +194,15 @@ ABI stands for "Application Binary Interface." It is a set of rules and conventi
 ### Memory Allocation and Stack Pointer
 
 Memory allocation refers to the process of assigning and managing memory segments for various data structures, variables, and objects used by a program. It involves allocating memory space from the system's memory pool and releasing it when it is no longer needed to prevent memory leaks. The stack pointer is a register used by a program to keep track of the current position of the program's execution on the call stack.
+</details>
+
+
 
 # Labwork for RISCV Toolchain
 
-## C Program
+<details>
+<summary>C Program</summary>
+<br>
 
 We wrote a C program ```p1.c```for calculating the Sum from 1 to n using a text editor, `gedit`.
 
@@ -159,6 +225,7 @@ gcc p1.c
 ```
 
 ![1](https://github.com/akshatva7/pes_asic_class/assets/135726741/753b4fde-d1c4-4b9c-b256-6dc3f0ef9fa7)
+
 
 # RISCV GCC Compiler and Disassemble
 
@@ -205,7 +272,11 @@ Press ```n``` to search for the next occurrence
 Press ```N``` to search for the previous occurrence.
 Use esc ```:q``` to quit
 
-# Spike Simulation and Debug
+</details>
+
+<details>
+<summary> Spike Simulation and Debug </summary>
+<br>
 
 ```spike pk p1.o ```is used to check whether the instructions produced are right to give the correct output.
 
@@ -217,18 +288,29 @@ Press ENTER : to show the first line and successive ENTER to show successive lin
 reg 0 a2 : to check content of register a2 0th core
 q : to quit the debug process
 
-# Integer Number Representation
-## Unsigned Numbers
+</details>
 
+# Integer Number Representation
+
+<details>
+<summary>Unsigned Numbers</summary>
+<br>
+	
 * Unsigned numbers, also known as non-negative numbers, are numerical values that represent magnitudes without indicating direction or sign.
 * Range: [0, (2^n)-1 ]
+</details>
 
-## Signed Numbers
+<details>
+<summary>Signed Numbers</summary>
+<br>
 
 * Signed numbers are numerical values that can represent both positive and negative magnitudes, along with zero.
 * Range : Positive : [0 , 2^(n-1)-1] Negative : [-1 to 2^(n-1)]
+</details>
 
-# Labwork
+<details>
+<summary>Labwork</summary>
+<br>
 
 We wrote a C program ```p2.c```that shows the maximum and minimum values of 64bit Signed numbers.
 
@@ -262,22 +344,34 @@ int main(){
 ```
 ![7](https://github.com/akshatva7/pes_asic_class/assets/135726741/6f1ea5b2-49dd-4afc-b1d9-80516056f9a8)
 
+</details>
 
+# DAY 2
 
 # Application Binary Interface
-## Introduction to ABI
+
+<details>
+<summary>Introduction to ABI</summary>
+<br>
 
 An Application Binary Interface (ABI) is a set of rules and conventions that dictate how binary code interacts with and communicates with other binary code, typically at the level of machine code or compiled code. In simpler terms, it defines the interface between two software components or systems that are written in different programming languages, compiled by different compilers, or running on different hardware architectures.
 The ABI is crucial for enabling interoperability between different software components, such as different libraries, object files, or even entire programs. It allows components compiled independently and potentially on different platforms to work seamlessly together by adhering to a common set of rules for communication and data representation.
+</details>
 
-## Memmory Allocation for Double Words
+
+<details>
+<summary>Memmory Allocation for Double Words</summary>
+<br>
 
 64-bit number (or any multi-byte value) can be loaded into memory in little-endian or big-endian. It involves understanding the byte order and arranging the bytes accordingly
 
 * Little-Endian: In little-endian representation, you store the least significant byte (LSB) at the lowest memory address and the most significant byte (MSB) at the highest memory address.
-Big-Endian: In big-endian representation, you store the most significant byte (MSB) at the lowest memory address and the least significant byte (LSB) at the highest memory address.
+* Big-Endian: In big-endian representation, you store the most significant byte (MSB) at the lowest memory address and the least significant byte (LSB) at the highest memory address.
+</details>
 
-# Load, Add and Store Instructions
+<details>
+<summary>Load, Add and Store Instructions</summary>
+<br>
 
 Load, Add, and Store instructions are fundamental operations in computer architecture and assembly programming. They are often used to manipulate data within a computer's memory and registers.
 
@@ -311,7 +405,11 @@ In this Example
 * ```x9``` is the destination register.
 * ```x10``` and ```x11``` are the source registers.
 
-# 32-Registers and their ABI Names
+</details>
+	
+<details>
+<summary>32-Registers and their ABI Names</summary>
+<br>
 
 The choice of the number of registers in a processor's architecture, such as the RISC-V RV64 architecture with its 32 general-purpose registers, involves a trade-off between various factors. While modern processors can have more registers but increasing the number of registers could lead to larger instructions, which would take up more memory and potentially slow down instruction fetch and decode.
 
@@ -321,10 +419,13 @@ ABI names for registers serve as a standardized way to designate the purpose and
 
 ![9](https://github.com/akshatva7/pes_asic_class/assets/135726741/0cf843d9-8f69-41a5-ac00-fd92d6f0928d)
 
+</details>
 
 # Labwork using ABI Function Calls
 
-## Algorithm for C Program using ASM
+<details>
+<summary>Algorithm for C Program using ASM</summary>
+<br>
 
 Incorporating assembly language code into a C program can be done using inline assembly or by linking separate assembly files with your C code.
 
@@ -332,7 +433,11 @@ When you call an assembly function from your C code, the C calling convention is
 
 The program executes the assembly function, following the assembly instructions you've provided.
 
-## Review ASM Function Calls
+</details>
+
+<details>
+<summary>Review ASM Function Calls</summary>
+<br>
 
 We wrote C code in one file and your assembly code in a separate file.
 In the assembly file, we declared assembly functions with appropriate signatures that match the calling conventions of your platform.
@@ -374,7 +479,12 @@ blt a3, a2, loop
 add a0, a4, zero
 ret
 ```
-# Simulate C Program using Function Call
+</details>
+
+
+<details>
+<summary>Simulate C Program using Function Call</summary>
+<br>
 
 **Compilation:** To compile C code and Asseembly file use the command
 
@@ -392,7 +502,7 @@ this would generate object file ```p3.o```
 
 ![Screenshot from 2023-08-20 22-01-35](https://github.com/akshatva7/pes_asic_class/assets/135726741/8861a8bc-256d-47da-93b4-7492a3a5a1ed)
 
-
+</details>
 
 
 
