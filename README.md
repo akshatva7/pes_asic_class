@@ -680,4 +680,94 @@ The mux is completely realised in the form of sky130 library cells.
 
 </details>
 
+# Day 4
+
+## Introduction to Timing Dot Libs
+
+<details>
+<summary>  Introduction to Dot Lib  </summary>
+<br>
+
+
+- To view the contents in the .lib
+```gvim ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
+	- The first line in the file ```library ("sky130_fd_sc_hd__tt_025C_1v80")```  :
+		- tt : indicates variations due to process and here it indicates Typical Process.
+		- 025C : indicates the variations due to temperatures where the silicon will be used.
+		- 1v80 : indicates the variations due to the voltage levels where the silicon will be incorporated.
+- It also displays the units of various parameters.
+- It gives the features of the cells
+- To enable line number ```:se nu```
+- To view all the cells ```:g//```
+- To view any instance ```:/instance```
+- Since there are 5 inputs, for all the 32 possible combinations, it gives the delay, power and all the other parameters for
+ each cell.
+- The below image shows the power consumption and area comparision.
+
+</details>
+
+## Hierarchical vs Flat Synthesis
+<details>
+<summary> Hierarchical Synthesis Flat Synthesis  </summary>
+<br>
+	
+**Hierarchical synthesis** is an approach in digital design and logic synthesis where complex designs are broken down into smaller, more manageable modules or sub-circuits, and each module is synthesized individually. These synthesized modules are then integrated back into the overall design hierarchy. This approach helps manage the complexity of large designs and allows designers to work on different parts of the design independently.
+
+- The file we used in this lab is ```multiple_modules.v```
+	- ```cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files```
+	- ```gvim multiple_modules.v```
+- ```multiple_modules``` instantiates ```sub_module1``` and ```sub_module2```
+- Launch ```yosys```
+- Read the library file  ```read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
+- Read the verilog file  ```read_verilog multiple_modules.v```
+- ```synth -top multiple_modules``` to set it as top module
+- ```abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
+- To view the netlist ```show multiple_modules```
+- Here it shows ```sub_module1``` and ```sub_module2``` instead of AND gate and OR gate.
+- ```write_verilog -noattr multiple_modules_hier.v```
+- ```!gvim multiple_modules_hier.v```
+
+**Flattened Synthesis**
+
+It is the opposite of hierarchical synthesis. Instead of maintaining the hierarchical structure of the design during synthesis, flattened synthesis combines all modules and sub-modules into a single, flat representation. This means that the entire design is synthesized as a single unit, without preserving the modular organization present in the original high-level description.
+
+- Launch ```yosys```
+- read the library file ```read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
+- read the verilog file ```read_verilog multiple_modules.v```
+- ```synth -top multiple_modules``` to set it as top module
+- ```abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
+- ```flatten``` to write out a flattened netlist
+- ```show```
+- ```write_verilog -noattr multiple_modules_flat.v```
+- ```!gvim multiple_modules_flat.v```
+  
+</details>
+
+
+## Various Flop Coding Styles and Optimization
+
+<details>
+<summary> Why Flops and Flop Coding Styles </summary>
+<br>
+
+ 
+</details>
+
+<details>
+<summary> Lab Flop Synthesis Simulations </summary>
+<br>
+	
+</details>
+
+
+<details>
+<summary> Interesting Optimisations </summary>
+<br>
+	
+</details>
+
+
+
+
+
 
