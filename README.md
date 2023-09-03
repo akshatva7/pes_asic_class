@@ -504,6 +504,180 @@ this would generate object file ```p3.o```
 
 </details>
 
+# Day 3
 
+## Introduction to Open-Source Simulator iVerilog
+
+<details>
+<summary>Introduction to iVerilog Design Testbench </summary>
+<br>
+
+- **Simulator**
+	- It is a tool used for simulating the design. It looks for the changes on the input signals to evaluate the outputs.
+	- If there is no change in the inputs, the simulator doesn't evaluate the outputs.
+	- RTL is checked for adherence to the spec by simulating the design.
+	- The tool used here is iverilog.
+- **iVerilog**
+  	- It is an open-source Verilog simulator used for testing and simulating digital circuit designs described in the Verilog hardware description language (HDL).
+	- Both the design and the testbench are fed to the simulator and it produces a vcd (value change dump) file.
+   	- In order to view the vcd file, we use the GTKwave where we can see the wave forms.
+ 
+   	- 
+<img align="right" src="https://github.com/akshatva7/pes_asic_class/assets/135726741/90619323-cca4-458a-b1df-8b9597a4312d">
+
+
+- **Design**
+	- It is the actual verilog code or set of verilog codes which ahs the intended functionality to meet with the required specifications.
+	- Verilog is used to describe the behavior and structure of digital circuits at different levels of abstraction, from high-level system descriptions down to low-level gate-level representations.
+
+- **Testbench**
+  
+	- A testbench is a specialized Verilog module or program used to verify the functionality and behavior of another Verilog module, circuit, or design. Testbenches are essential for testing and simulating digital designs before they are synthesized or manufactured as physical chips.
+	- It is a setup to apply stimulus to the design to check its functionality.
+
+<img align="right" src="https://github.com/akshatva7/pes_asic_class/assets/135726741/8e307f40-bb60-4342-a076-13c378e6f5f7">
+</details>
+
+## Labs using iVerilog and GTKwave
+
+<details>
+<summary>Introduction to Lab </summary>
+<br>
+
+- Make a directory named vsd ```mkdir vsd```
+- ```cd vsd```
+- ```git clone https://github.com/kunalg123/sky130RTLDesignAndSynthesisWorkshop.git```
+- Creates a folder called ```sky130RTLDesignAndSynthesisWorkshop``` in the vsd directory.
+	- my_lib : contains all the library files
+	- lib : contains sky130 standard cell library used for our synthesis
+	- verilog_model : contains all the standard cell verilog modules of the standard cells contained in the .lib 
+	- verilog_files : contains all the verilog source files and testbench files which are required for labs
+
+</details>
+
+<details>
+<summary> iVerilog GTKwave Part-1  </summary>
+<br>
+	
+- ```cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files```
+- We have loaded the source code along with the testbench code into the iverilog simulator
+- ```iverilog good_mux.v tb_good_mux.v```
+- We can see that an output file ```a.out``` has been created.
+- ```./a.out``` To execute it
+- The output of the iverilog, a vcd file,  is created which is loaded into the simualtor gtkwave.
+- ```gtkwave tb_good_mux.vcd```
+
+2 pictures to be added
+
+</details>
+	
+<details>
+<summary> iVerilog GTKwave Part-2  </summary>
+<br>
+
+- In order to view the contents in the files,
+- ```gvim tb_good_mux.v -o good_mux.v```
+  
+</details>
+
+## Introduction to Yosys and Logic Synthesis
+	
+<details>
+<summary>  Introduction to Yosys </summary>
+<br>
+	
+ - **Synthesizer**
+	- It is a tool used for converting RTL design code to netlist.
+	- Here, the synthesizer used is Yosys.
+- **Yosys**
+	- It is an open-source framework for Verilog RTL synthesis and formal verification.
+	- Yosys provides a collection of tools and algorithms that enable designers to transform high-level RTL (Register Transfer Level) descriptions of digital circuits into optimized gate-level representations suitable for physical implementation on hardware.
+ - Design and .lib files are fed to the synthesizer to get a netlist file.
+ - **Netlist** is the representation of the design in the form of standard cells in the .lib
+ - Commands used to perform different opertions:
+ 	- ```read_verilog``` to read the design
+  	- ```read_liberty``` to read the .lib file
+   	- write_verilog to write out the netlist file
+   	  
+- To verify the synthesis
+- Netlist along with the tesbench is fed to the iverilog simulator.
+- The vcd file generated is fed to the gtkwave simulator.
+- The output on the simulator must be same as the output observed during RTL simulation.
+- Same RTL testbench can be used as the primary inputs and primary outputs remain same between the RTL design and synthesised netlist.
+
+</details>
+
+<details>
+<summary>  Introduction to Logic Synthesis  </summary>
+<br>
+	
+- Logic Synthesis
+	- Logic synthesis is a process in digital design that transforms a high-level hardware description of a digital circuit, typically in a hardware description language (HDL) like verilog or VHDL, into a lower-level representation composed of logic gates and flip-flops.
+	- The goal of logic synthesis is to optimize the design for various criteria such as performance, area, power consumption, and timing.
+- .lib
+	- It is a collection of logical modules like And, Or, Not etc.
+	- It has different flavors of same gate like 2 input AND gate, 3 input AND gate etc with different performace speed.
+- Why different flavors  of gate?
+	- In order to make a circuit faster, the clock frequency should be high.
+	- For that, the time period of the clock should be as low as possible.
+- In a sequential circuit, clock period depends on:	
+	- Clock to Q of flip-flop A.
+	- Propagation delay of combinational circuit.
+	- Setup time of flip-flop B.
+
+- Why need fast and slow cells?
+	- To ensure that there are no HOLD issues at flip-flop B, we require slow cells.
+	- For a smaller propagation time, we need faster cells.
+	- The collection forms the .lib
+
+- Faster Cells vs Slower Cells
+
+	- Load in digital circuit is of Capacitence.
+	- Faster the charging or dicharging of capacitance, lesser is the cell delay.
+	- However, for a quick charge/ discharge of capacitor, we need transistors capable of sourcing more current i.e, we need wide transistors.
+	- Wider transistors have lesser delay but consume more area and power.
+	- Narrow transistors have more delay but consume less area and performance.
+	- Faster cells come with a cost of area and power.
+
+- Selection of the Cells
+  	- We have to guide the Synthesizer to choose the flavour of cells that is optimum for implementation of logic circuit.
+  	- More use of faster cells leads to bad circuit in terms of power and area and also hold time violations.
+  	- More use of slower cells leads to sluggish circuits amd may not meet the performance needs.
+  	- Hence the guidance is offered to the synthesiser in the form of constraints.
+  	  
+</details>
+
+## Labs using Yosys and Sky130 PDKs
+<details>
+<summary>   Yosys good_mux  </summary>
+<br>
+	
+- To invoke **yosys**
+- ```cd```
+- ```cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files```
+- Type ```yosys```
+- To read the library
+ ```read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
+- To read the design
+```read_verilog good_mux.v```
+- To syntheis the module
+``` synth -top good_mux```
+- To generate the netlist
+```abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
+
+It gives a report of what cells are used and the number of input and output signals.
+- To see the logic realised
+```show```
+
+The mux is completely realised in the form of sky130 library cells.
+
+- To write the netlist
+	- ```Write_verilog good_mux_netlist.v```
+	- ```!gvim good_mux_netlist.v```
+- To view a simplified code
+  - ```write_verilog -noattr good_mux_netlist.v```
+  - ```!gvim good_mux_netlist.v```
+
+</details>
 
 
