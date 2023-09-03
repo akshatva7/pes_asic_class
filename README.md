@@ -1,4 +1,4 @@
-)# VLSI Physical Design for ASICs
+# VLSI Physical Design for ASICs
 
 ## Objective
 
