@@ -1,4 +1,4 @@
-# VLSI Physical Design for ASICs
+![Screenshot from 2023-09-03 23-08-00](https://github.com/akshatva7/pes_asic_class/assets/135726741/0347bc9a-9c95-49f9-8658-5beeb3bb1104)![Screenshot from 2023-09-03 22-54-32](https://github.com/akshatva7/pes_asic_class/assets/135726741/3c761402-707d-4dc4-8383-d45c6bba426c)![Screenshot from 2023-09-03 22-40-20](https://github.com/akshatva7/pes_asic_class/assets/135726741/bd26644f-3e99-4f07-a7d8-35eb1b2e90b6)# VLSI Physical Design for ASICs
 
 ## Objective
 
@@ -552,7 +552,7 @@ this would generate object file ```p3.o```
 	- lib : contains sky130 standard cell library used for our synthesis
 	- verilog_model : contains all the standard cell verilog modules of the standard cells contained in the .lib 
 	- verilog_files : contains all the verilog source files and testbench files which are required for labs
-
+ 
 </details>
 
 <details>
@@ -567,7 +567,9 @@ this would generate object file ```p3.o```
 - The output of the iverilog, a vcd file,  is created which is loaded into the simualtor gtkwave.
 - ```gtkwave tb_good_mux.vcd```
 
-2 pictures to be added
+<img align="right" src="https://github.com/akshatva7/pes_asic_class/assets/135726741/dab7b772-c655-4bed-b5d6-76a3ceef1c1c">
+
+<img align="right" src="https://github.com/akshatva7/pes_asic_class/assets/135726741/9a084202-508c-4cc9-8919-3f245b8f7e08">
 
 </details>
 	
@@ -577,6 +579,8 @@ this would generate object file ```p3.o```
 
 - In order to view the contents in the files,
 - ```gvim tb_good_mux.v -o good_mux.v```
+
+<img align="right" src="https://github.com/akshatva7/pes_asic_class/assets/135726741/9ad0b2e4-23ae-4897-9919-e2651fe2c4f9">
   
 </details>
 
@@ -592,6 +596,9 @@ this would generate object file ```p3.o```
 - **Yosys**
 	- It is an open-source framework for Verilog RTL synthesis and formal verification.
 	- Yosys provides a collection of tools and algorithms that enable designers to transform high-level RTL (Register Transfer Level) descriptions of digital circuits into optimized gate-level representations suitable for physical implementation on hardware.
+![Screenshot from 2023-09-03 22-39-53](https://github.com/akshatva7/pes_asic_class/assets/135726741/1d17be0d-3819-48be-bbb0-0479471af78d)
+
+
  - Design and .lib files are fed to the synthesizer to get a netlist file.
  - **Netlist** is the representation of the design in the form of standard cells in the .lib
  - Commands used to perform different opertions:
@@ -600,6 +607,8 @@ this would generate object file ```p3.o```
    	- write_verilog to write out the netlist file
    	  
 - To verify the synthesis
+![Screenshot from 2023-09-03 22-40-05](https://github.com/akshatva7/pes_asic_class/assets/135726741/228ddac5-78f2-4d05-96aa-1aa885e7bc92)
+
 - Netlist along with the tesbench is fed to the iverilog simulator.
 - The vcd file generated is fed to the gtkwave simulator.
 - The output on the simulator must be same as the output observed during RTL simulation.
@@ -620,10 +629,14 @@ this would generate object file ```p3.o```
 - Why different flavors  of gate?
 	- In order to make a circuit faster, the clock frequency should be high.
 	- For that, the time period of the clock should be as low as possible.
+![Screenshot from 2023-09-03 22-40-20](https://github.com/akshatva7/pes_asic_class/assets/135726741/8b764103-c7aa-4a49-aeff-b51c327f0aa9)
+
 - In a sequential circuit, clock period depends on:	
 	- Clock to Q of flip-flop A.
 	- Propagation delay of combinational circuit.
 	- Setup time of flip-flop B.
+ - 
+![Screenshot from 2023-09-03 22-43-29](https://github.com/akshatva7/pes_asic_class/assets/135726741/5719ecaf-2b5c-4bd3-b137-28c0822a744c)
 
 - Why need fast and slow cells?
 	- To ensure that there are no HOLD issues at flip-flop B, we require slow cells.
@@ -656,18 +669,27 @@ this would generate object file ```p3.o```
 - ```cd```
 - ```cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files```
 - Type ```yosys```
+![Screenshot from 2023-09-03 22-50-37](https://github.com/akshatva7/pes_asic_class/assets/135726741/98c24bea-0558-416c-b725-8efaa1e13aa2)
+
+
 - To read the library
  ```read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
 - To read the design
 ```read_verilog good_mux.v```
 - To syntheis the module
 ``` synth -top good_mux```
+![Screenshot from 2023-09-03 22-54-32](https://github.com/akshatva7/pes_asic_class/assets/135726741/28461c0e-377b-4e77-b236-d70a088e2ad9)
+![Screenshot from 2023-09-03 23-05-58](https://github.com/akshatva7/pes_asic_class/assets/135726741/f49a801a-4904-4728-895d-65d7422de924)
+
+
 - To generate the netlist
 ```abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
+![Screenshot from 2023-09-03 23-08-00](https://github.com/akshatva7/pes_asic_class/assets/135726741/10d301a6-7f1c-4755-bb5f-4bc6dae8d46e)
 
 It gives a report of what cells are used and the number of input and output signals.
 - To see the logic realised
 ```show```
+![Screenshot from 2023-09-03 23-10-40](https://github.com/akshatva7/pes_asic_class/assets/135726741/5c0c8f35-c912-4c29-97e8-8b32cba8c304)
 
 The mux is completely realised in the form of sky130 library cells.
 
@@ -677,6 +699,8 @@ The mux is completely realised in the form of sky130 library cells.
 - To view a simplified code
   - ```write_verilog -noattr good_mux_netlist.v```
   - ```!gvim good_mux_netlist.v```
+
+![Screenshot from 2023-09-03 23-12-37](https://github.com/akshatva7/pes_asic_class/assets/135726741/50afb721-8c94-406a-a7fb-be11307c9f78)
 
 </details>
 
@@ -691,6 +715,9 @@ The mux is completely realised in the form of sky130 library cells.
 
 - To view the contents in the .lib
 ```gvim ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
+
+![Screenshot from 2023-09-03 23-31-59](https://github.com/akshatva7/pes_asic_class/assets/135726741/09dcbef0-8d7e-4d0b-a55b-ace0702ab8c0)
+
 	- The first line in the file ```library ("sky130_fd_sc_hd__tt_025C_1v80")```  :
 		- tt : indicates variations due to process and here it indicates Typical Process.
 		- 025C : indicates the variations due to temperatures where the silicon will be used.
