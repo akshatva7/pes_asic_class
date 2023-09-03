@@ -749,14 +749,103 @@ It is the opposite of hierarchical synthesis. Instead of maintaining the hierarc
 <details>
 <summary> Why Flops and Flop Coding Styles </summary>
 <br>
+	
+**Why do we need a Flop?**
 
- 
+- A flip-flop (often abbreviated as "flop") is a fundamental building block in digital circuit design.
+- It's a type of sequential logic element that stores binary information (0 or 1) and can change its output based on clock signals and input values.
+- In a combinational circuit, the output changes after the propagation delay of the circuit once inputs are changed.
+- During the propagation of data, if there are different paths with different propagation delays, then a glitch might occur.
+- There will be multiple glitches for multiple combinational circuits.
+- Hence, we need flops to store the data from the combinational circuits.
+- When a flop is used, the output of combinational circuit is stored in it and it is propagated only at the posedge or negedge of the clock so that the next combinational circuit gets a glitch free input thereby stabilising the output.
+- We use control pins like set and reset to initialise the flops.
+- They can be synchronous and asynchronous.
+
+**D Flip-Flop with Asynchronous Reset**
+
+- When the reset is high, the output of the flip-flop is forced to 0, irrespective of the clock signal.
+- Else, on the positive edge of the clock, the stored value is updated at the output.
+```gvim dff_asyncres_syncres.v```
+
+**D Flip-Flop with Asynchronous Set**
+
+- When the set is high, the output of the flip-flop is forced to 1, irrespective of the clock signal.
+- Else, on positive edge of the clock, the stored value is updated at the output.
+```gvim dff_async_set.v```
+
+**D Flip_Flop with Synchronous Reset**
+
+When the reset is high on the positive edge of the clock, the output of the flip-flop is forced to 0.
+
+Else, on the positive edge of the clock, the stored value is updated at the output.
+
+```gvim dff_syncres.v```
+
+**D Flip-Flop with Asynchronous Reset and Synchronous Reset**
+- When the asynchronous resest is high, the output is forced to 0.
+- When the synchronous reset is high at the positive edge of the clock, the output is forced to 0.
+- Else, on the positive edge of the clock, the stored value is updated at the output.
+- Here, it is a combination of both synchronous and asynchronous reset DFF.
+```gvim dff_asyncres_syncres.v```
+
 </details>
 
 <details>
 <summary> Lab Flop Synthesis Simulations </summary>
 <br>
 	
+**D Flip-Flop with Asynchronous Reset**
+- Simulation
+	- ```cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files```
+	- ```iverilog dff_asyncres.v tb_dff_asyncres.v```
+	- ```./a.out```
+	- ```gtkwave tb_dff_asyncres.vcd```
+- Synthesis
+	- ```cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files```
+	- ```yosys```
+	- ```read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
+	- ```read_verilog dff_asyncres.v```
+	- ```synth -top dff_asyncres```
+	- ```dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
+	- ```abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
+	- ```show```
+ 
+**D Flip_Flop with Asynchronous Set*
+
+- Simulation
+	- ```cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files```
+	- ```iverilog dff_async_set.v tb_dff_async_set.v```
+	- ```./a.out```
+	- ```gtkwave tb_dff_async_set.vcd```
+- Synthesis
+	- ```cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files```
+	- ```yosys```
+	- ```read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
+	- ```read_verilog dff_async_set.v```
+	- ```synth -top dff_async_set```
+	- ```dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
+	- ```abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
+	- ```show```
+
+**D Flip-Flop with Synchronous Reset**
+
+- Simulation
+
+	- ```cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files```
+	- ```iverilog dff_syncres.v tb_dff_syncres.v```
+	- ```./a.out```
+	- ```gtkwave tb_dff_syncres.vcd```
+
+- Synthesis
+	- ```cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files```
+	- ```yosys```
+	- ```read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
+	- ```read_verilog dff_syncres.v```
+	- ```synth -top dff_syncres```
+	- ```dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
+	- ```abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
+	- ```show```
 </details>
 
 
@@ -764,7 +853,87 @@ It is the opposite of hierarchical synthesis. Instead of maintaining the hierarc
 <summary> Interesting Optimisations </summary>
 <br>
 	
+- ```gvim mult_2.v```
+- ```read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
+- ```read_verilog mult_2.v```
+- ```synth -top mul2```
+- ```abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
+- ```show```
+- ```write_verilog -noattr mul2_netlist.v```
+- ```!gvim mul2_netlist.v```
+- ```gvim mult_8.v```
+- ```read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
+- ```read_verilog mult_8.v```
+- ```synth -top mult8```
+- ```abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
+- ```show```
+- ```write_verilog -noattr mult8_netlist.v```
+- ```!gvim mult8_netlist.v```
 </details>
+
+# Day 5
+
+## Introduction to Optimisations
+<details>
+<summary> Combinational Optimisation </summary>
+<br>
+	
+**Combinational Optimisation**	
+- Combinational optimization focuses on problems with discrete variables and no time dependence, seeking the best solution from a finite set of options.
+- Combinational logic circuits have outputs determined solely by current inputs, without considering previous states.
+- Optimizing combinational logic circuits aims to create efficient digital designs, emphasizing area and power efficiency.
+- Techniques for optimization include constant propagation, which replaces variables with their constant values, and Boolean logic optimization, which simplifies logic circuits.
+- Boolean logic optimization reduces the complexity of Boolean expressions, minimizing terms, literals, and gates needed for logical functions.
+
+</details>
+	
+<details>
+<summary> Sequential Logic Optimisations </summary>
+<br>
+
+**Sequential Optimisation**
+- Sequential logic optimizations enhance digital circuits with memory elements (e.g., flip-flops) for efficiency, performance, and resource usage.
+-  Optimization ensures meeting timing requirements, minimal power consumption, and compact circuit area while maintaining functionality.
+- Techniques include sequential constant propagation (propagating constant values in sequential elements), state optimization (reducing FSM states), sequential logic cloning (introducing pipeline stages), and retiming (repositioning flip-flops for shorter clock periods).
+- Sequential constant propagation replaces variables with known constant values to enhance performance and resource utilization.
+- State optimization reduces FSM states, sequential logic cloning introduces pipeline stages, and retiming balances timing paths without changing circuit functionality.
+  
+</details>
+
+
+## Combinational Logic Optimisations
+<details>
+<summary> Combinational Optimisation </summary>
+<br>
+<details>
+opt_check
+<details>
+<summary> Combinational Optimisation </summary>
+<br>
+<details>
+opt_check2
+<details>
+<summary> Combinational Optimisation </summary>
+<br>
+<details>
+opt_check3
+<details>
+<summary> Combinational Optimisation </summary>
+<br>
+<details>
+opt_check4
+<details>
+<summary> Combinational Optimisation </summary>
+<br>
+	
+</details>	
+
+<details>
+<summary> Multiple_module_opt </summary>
+<br>
+	
+</details>
+
 
 
 
