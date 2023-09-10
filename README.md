@@ -929,41 +929,365 @@ Else, on the positive edge of the clock, the stored value is updated at the outp
 
 
 ## Combinational Logic Optimisations
-<details>
-<summary> Combinational Optimisation </summary>
-<br>
-<details>
-opt_check
-<details>
-<summary> Combinational Optimisation </summary>
-<br>
-<details>
-opt_check2
-<details>
-<summary> Combinational Optimisation </summary>
-<br>
-<details>
-opt_check3
-<details>
-<summary> Combinational Optimisation </summary>
-<br>
-<details>
-opt_check4
-<details>
-<summary> Combinational Optimisation </summary>
-<br>
-	
-</details>	
 
 <details>
-<summary> Multiple_module_opt </summary>
-<br>
+<summary> opt_check </summary>	
 	
++ `gvim opt_check.v`
++ `read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
++ `read_verilog opt_check.v`
++ `synth -top opt_check`
++ `opt_clean -purge`
++ `abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
++ `show`
+
+  
 </details>
 
+<details>
+<summary> opt_check2 </summary>	
+	
++ `gvim opt_check2.v`
++ `read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
++ `read_verilog opt_check2.v`
++ `synth -top opt_check2`
++ `opt_clean -purge`
++ `abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
++ `show`
+
+</details>
+
+<details>
+<summary> opt_check3 </summary>	
+	
++ `gvim opt_check3.v`
++ `read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
++ `read_verilog opt_check3.v`
++ `synth -top opt_check3`
++ `opt_clean -purge`
++ `abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
++ `show`
+
+</details>
+
+<details>
+<summary> opt_check4 </summary>
+	
++ `gvim opt_check4.v`
++ `read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
++ `read_verilog opt_check4.v`
++ `synth -top opt_check4`
++ `opt_clean -purge`
++ `abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
++ `show`
+
+</details>
+
+<details>
+<summary> multiple_module_opt </summary>
+	
++ `gvim multiple_module_opt.v`
++ `read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
++ `read_verilog multiple_module_opt.v`
++ `synth -top multiple_module_opt`
++ `opt_clean -purge`
++ `abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
++ `show`
+
+</details>
+
+## Sequential Logic Optimisations
+
+<details>
+<summary> dff_const1 </summary>	
+
++ `gvim dff_const1.v`
+
+**Simulation**
+
++ `iverilog dff_const1.v tb_dff_const1.v`
++ `/a.out`
++ `gtkwave tb_dff_const1.vcd`
+
+**Synthesis**
+
++ `read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
++ `read_verilog dff_const1.v`
++ `synth -top dff_const1`
++ `dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib `
++ `abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
++ `show`
+
+</details>
+
+<details>
+<summary> dff_const2 </summary>	
+
++ `gvim dff_const2.v`
+
+**Simulation**
+
++  `iverilog dff_const2.v tb_dff_const2.v`
++ `/a.out`
++ `gtkwave tb_dff_const2.vcd`
+
+ **Synthesis**
+ 
++ `read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
++ `read_verilog dff_const2.v`
++ `synth -top dff_const2`
++ `dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib `
++ `abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
++ `show`
+
+</details>
+
+<details>
+<summary> dff_const3 </summary>
+
++ `gvim dff_const3.v`
+
+**Simulation**
+
++ `iverilog dff_const3.v tb_dff_const3.v`
++ `/a.out`
++ `gtkwave tb_dff_const3.vcd`
+
+**Synthesis**
+
++ `read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
++ `read_verilog dff_const3.v`
++ `synth -top dff_const3`
++ `dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib `
++ `abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
++ `show`
+
+</details>
+
+<details>
+<summary> dff_const4 </summary>	
+
++ `gvim dff_const4.v`
+
+**Simulation**
+
++ `iverilog dff_const4.v tb_dff_const4.v`
++ `/a.out`
++ `gtkwave tb_dff_const4.vcd`
+
+**Synthesis**
+
++ `read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
++ `read_verilog dff_const4.v`
++ `synth -top dff_const4`
++ `dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib `
++ `abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
++ `show`
+
+</details>
+
+<details>
+<summary> dff_const5 </summary>	
+
++ `gvim dff_const5.v`
+
+**Simulation**
+
++ `iverilog dff_const4.v tb_dff_const4.v`
++ `/a.out`
++ `gtkwave tb_dff_const5.vcd`
+
+**Synthesis**
+
++ `read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
++ `read_verilog dff_const4.v`
++ `synth -top dff_const4`
++ `dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib `
++ `abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
++ `show`
+
+</details>
+
+## Sequential Optimisations for Unused Outputs
+<details>
+<summary> counter_opt </summary>
+
++ `gvim counter_opt.v`
++ `read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
++ `read_verilog counter_opt.v`
++ `synth -top counter_opt`
++ `dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
++ `abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
++ `show`
+
+</details>
+
+<details>
+<summary> counter_opt2 </summary>	
+
++ `gvim counter_opt2.v`
++ `read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
++ `read_verilog counter_opt2.v`
++ `synth -top counter_opt2`
++ `dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
++ `abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
++ `show`
+
+</details>
+
+# Day 6
+## GLS Synthesis-Simulation Mismatch and Blocking Non-blocking Statements
+
+<details>
+<summary> GLS Concepts And Flow Using Iverilog </summary>	
+
+ + **Gate Level Simualtion**
+   - Gate-level simulation is a technique used in digital design and verification to validate the functionality of a digital circuit at the gate-level implementation.
+   - It involves simulating the circuit using the actual logic gates and flip-flops that make up the design, as opposed to higher-level abstractions like RTL (Register Transfer Level) descriptions.
+   - This type of simulation is typically performed after the logic synthesis process, where a high-level description of the design is transformed into a netlist of gates and flip-flops.
+   - We perform this to verify logical correctness of the design after synthesizing it. Also ensuring the timing of the design is met.
+  
+
++ **Synthesis-Simulation Mismatch**
+  - A synthesis-simulation mismatch refers to a situation in digital design where the behavior of a circuit, as observed during simulation, doesn't match the expected or desired behavior of the circuit after it has been synthesized.
+  - This discrepancy can occur due to various reasons, such as timing issues, optimization conflicts, and differences in modeling between the simulation and synthesis tools.
+  - This mismatch is a critical concern in digital design because it indicates that the actual hardware implementation might not perform as expected, potentially leading to functional or timing failures in the fabricated chip.
+
++ **Blocking Statements**
+  - Blocking statements are executed sequentially in the order they appear in the code and have an immediate effect on signal assignments.
+  - Example:
+
+  ``` v
+   module BlockingExample(input A, input B, input C, output Y, output Z);
+    wire temp;
+
+    // Blocking assignment
+    assign temp = A & B;
+
+    always @(posedge C) begin
+        // Blocking assignment
+        Y = temp;
+        Z = ~temp;
+    end
+   endmodule
+  ```
+
++ **Non-Blocking Statements**
+  - Non-blocking assignments are used to model concurrent signal updates, where all assignments are evaluated simultaneously and then scheduled to be updated at the end of the time step.
+  - Example:
+   ``` v
+    module NonBlockingExample(input clock, input D, input reset, output reg Q);
+
+    always @(posedge clock or posedge reset) begin
+        if (reset)
+            Q <= 0;  // Reset the flip-flop
+        else
+            Q <= D;  // Non-blocking assignment to update Q with D on clock edge
+    end
+  endmodule
+   ```
+
++ **Caveats with Blocking Statements**
+  + Blocking statements in hardware description languages like Verilog have their uses, but there are certain caveats and considerations to be aware of when working with them. Here are some important caveats associated with using blocking statements:
+    - Procedural Execution: Blocking statements are executed sequentially in the order they appear within a procedural block (such as an always block). This can lead to unexpected behavior if the order of execution matters and is not well understood.
+    - Lack of Parallelism: Blocking statements do not accurately represent the parallel nature of hardware. In hardware, multiple signals can update concurrently, but blocking statements model sequential behavior. As a result, using blocking statements for modeling complex concurrent logic can lead to incorrect simulations.
+    - Race Conditions: When multiple blocking assignments operate on the same signal within the same procedural block, a race condition can occur. The outcome of such assignments depends on their order of execution, which might lead to inconsistent or unpredictable behavior.
+    - Limited Representation of Hardware: Hardware systems are inherently concurrent and parallel, but blocking statements do not capture this aspect effectively. Using blocking assignments to model complex combinational or sequential logic can lead to models that are difficult to understand, maintain, and debug.
+    - Combinatorial Loops: Incorrect use of blocking statements can lead to unintentional combinational logic loops, which can result in simulation or synthesis errors.
+    - Debugging Challenges: Debugging code with many blocking assignments can be challenging, especially when trying to track down timing-related issues.
+    - Not Suitable for Flip-Flops: Blocking assignments are not suitable for modeling flip-flop behavior. Non-blocking assignments (<=) are generally preferred for modeling flip-flop updates to ensure accurate representation of concurrent behavior.
+    - Sequential Logic Misrepresentation: Using blocking assignments to model sequential logic might not capture the intended behavior accurately. Sequential elements like registers and flip-flops are better represented using non-blocking assignments.
+    - Synthesis Implications: The behavior of blocking assignments might not translate well during synthesis, leading to potential mismatches between simulation and synthesis results.
+
+</details>
+
+## Labs on GLS and Synthesis-Simulation Mismatch
+<details>
+<summary> ternary_operator_mux </summary>	
+
++ `gvim teranry_operator_mux.v`
+
+**Simulation**
+
++ `iverilog ternary_operator_mux.v tb_ternary_operator_mux.v`
++ `./a.out`
++ `gtkwave tb_ternary_operator_mux.vcd`
 
 
+**Synthesis**
+
++ `read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
++ `read_verilog ternary_operator_mux.v`
++ `synth -top ternary_operator_mux`
++ `abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
++ `show`
 
 
+**GLS to Gate-Level Simulation**
 
++ `iverilog ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_sc_hd.v ternary_operator_mux_net.v tb_ternary_operator_mux.v`
++ `./a.out`
++ `gtkwave tb_bad_mux.vcd`
+
+
+</details>
+
+<details>
+<summary> bad_mux </summary>	
+
+ + `gvim bad_mux.v`
+
+ 
+**Simualtion**
+
++ `iverilog bad_mux.v tb_bad_mux.v`
++ `./a.out`
++ `gtkwave tb_bad_mux.vcd`
+
+
+**Synthesis**
+
++ `read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
++ `read_verilog bad_mux.v`
++ `synth -top bad_mux`
++ `abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
++ `show`
+
+**GLS to Gate-Level Simulation**
+
++ `iverilog ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_sc_hd.v bad_mux_net.v tb_bad_mux.v`
++ `./a.out`
++ `gtkwave tb_bad_mux.vcd`
+
+</details>
+
+## Labs on Synth-Sim Mismatch for Blocking Statement
+
+<details>
+<summary> blocking_caveat </summary>	
+
++ `gvim blocking_caveat.v`
+
+
+**Simualtion**
+
++ `iverilog blocking_caveat.v tb_blocking_caveat.v`
++ `./a.out`
++ `gtkwave tb_blocking_caveat.vcd`
+
+**Synthesis**
+
++ `read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
++ `read_verilog blocking_caveat.v`
++ `synth -top blocking_caveat`
++ `abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
++ `show`
+
+**GLS to Gate-Level Simulation**
+
++ `iverilog ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_sc_hd.v blocking_caveat_net.v tb_blocking_caveat.v`
++ `./a.out`
++ `gtkwave tb_blocking_caveat.vcd`
+
+</details>
 
